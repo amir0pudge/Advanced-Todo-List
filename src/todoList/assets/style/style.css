@@ -28,7 +28,7 @@
     text-transform: uppercase;
 }
 
-.main>div {
+form {
     width: 80%;
     height: auto;
     /* border: 1px solid red; */
