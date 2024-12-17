@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    height: auto;
+    /* border: 1px solid red; */
+    flex-wrap: wrap;
+}
+
+.title {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.main>div {
+    width: 80%;
+    height: auto;
+    /* border: 1px solid red; */
+}
+
+.inputEntry {
+    width: 100%;
+    height: auto;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+.Todos {
+    width: 100%;
+    height: auto;
+    padding: 25px 30px;
+    flex-wrap: wrap;
+    /* border: 1px solid #007BFF; */
+}
+
+.Todos>ul {
+    width: 97%;
+    height: auto;
+    /* border: 1px solid green; */
+}
+
+.Todos>ul>li {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+    padding: 20px 10px;
+    margin: 10px 0;
+    list-style-type: none;
+    background-color: whitesmoke;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.Todos>ul>li button {
+    width: auto;
+    height: auto;
+    border-radius: 7px;
+    background-color: #007BFF;
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.Todos>ul>li button:nth-of-type(1) {
+    right: 1%;
+}
+
+
+.Todos>ul>li button:nth-of-type(2) {
+    right: 5%;
+}
+
+.Todos>ul>li button:nth-of-type(3) {
+    right: 9%;
+}
+
+.Todos>ul>li button svg {
+    fill: white;
+    width: 35px;
+    height: 35px;
+    padding: 7px;
+}
+
+.inputEntry input {
+    width: 85%;
+    height: auto;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+    padding: 20px 10px;
+}
+
+.inputEntry button {
+    width: 10%;
+    height: auto;
+    border: none;
+    outline: none;
+    background-color: #007BFF;
+    border-radius: 7px;
+    padding: 20px 10px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.FilterButton {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+    position: relative;
+    min-height: 100px;
+}
+
+.FilterButton select {
+    position: absolute;
+    right: 2.5%;
+    width: 10%;
+    height: auto;
+    border: none;
+    outline: none;
+    background-color: #007BFF;
+    border-radius: 7px;
+    padding: 20px 10px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.FilterButton span {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* background-color: red; */
+    padding: 10px;
+    font-size: 28px;
+    max-width: 300px;
+    position: absolute;
+    left: 2.5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
