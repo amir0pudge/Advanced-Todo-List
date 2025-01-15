@@ -1,5 +1,3 @@
-import Form from 'react-bootstrap/Form';
-
 
 function TodoFilter(props) {
 
@@ -18,11 +16,11 @@ function TodoFilter(props) {
     }
 
     return (
-        <Form.Select aria-label="Default select example" onChange={e => listName(e)} >
+        <select aria-label="Default select example" onChange={e => listName(e)} className='w-auto h-auto border-none outline-none bg-blue1 text-white py-3 xs:px-0 sm:px-2 rounded-md uppercase text-xl cursor-pointer text-center bottom-2/4 translate-y-2/4 absolute right-10 font-semibold'  >
             <option value="all">All</option>
             <option value="done">In process</option>
             <option value="undone">Done</option>
-        </Form.Select>
+        </select>
     );
 }
 
