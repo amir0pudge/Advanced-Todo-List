@@ -19,7 +19,8 @@ export default function TodoList() {
     const [doneTodo, setDoneTodo] = useState([])
     const [undoneTodo, setUnDoneTodo] = useState([])
     const [Show, setShow] = useState([])
-    const [editmode , setEditmode] = useState(false)
+    const [editmode, setEditmode] = useState(false)
+    const [editvalue, setEditValue] = useState("")
 
 
     const parentCallback = (childdata) => {
@@ -30,10 +31,10 @@ export default function TodoList() {
         e.preventDefault();
     };
 
-  
+
 
     return (
-        <TodoContext.Provider value={{ value, setValue, todos, setTodos, addValue, setAddValue, editkey, setEditkey, titleValue, setTitleValue, doneTodo, setDoneTodo, undoneTodo, setUnDoneTodo, Show, setShow , editmode , setEditmode }}>
+        <TodoContext.Provider value={{ value, setValue, todos, setTodos, addValue, setAddValue, editkey, setEditkey, titleValue, setTitleValue, doneTodo, setDoneTodo, undoneTodo, setUnDoneTodo, Show, setShow, editmode, setEditmode, editvalue, setEditValue }}>
             <>
                 <div className='w-100 h-auto flex-center'>
                     <form onSubmit={handleSubmit} className='xs:w-full sm:container h-auto'>

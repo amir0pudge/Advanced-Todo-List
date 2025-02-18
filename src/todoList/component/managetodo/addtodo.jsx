@@ -11,9 +11,6 @@ export default function AddTodo() {
 
     const inputTextRef = React.createRef()
 
-    function editTodo(e){
-        inputTextRef.current.focus()
-    }
 
     function generateTodo() {
         const time = Date.now()
@@ -58,7 +55,7 @@ export default function AddTodo() {
             <div className='w-100 h-auto flex justify-evenly items-center py-10 xs:flex-wrap sm:flex-nowrap'>
                 <div className='w-100 h-auto flex justify-evenly items-center p-10 xs:flex-wrap sm:flex-nowrap'>
                     <input className='xs:w-full sm:w-90 h-auto rounded-md border-none outline-none bg-whitesmoke pr-20 pl-[20px] py-10' type="text" placeholder='Enter Your Todo' onChange={(e) => setValue(e.target.value)} value={value} ref={inputTextRef} />
-                    <button className="xs:w-full sm:w-10 h-auto rounded-md border-none outline-none bg-blue1 text-color flex-center font-bold uppercase text-2xl px-20 py-9 xs:ml-0 xs:mt-3 sm:ml-5 sm:mt-0" type='submit' onClick={addValue ? addTodo : pasteEditTodo}>{addValue ? 'add' : 'edit'}</button>
+                    <button className="xs:w-full sm:w-10 h-auto rounded-md border-none outline-none bg-blue1 text-color flex-center font-bold uppercase text-2xl px-20 py-9 xs:ml-0 xs:mt-3 sm:ml-5 sm:mt-0" type='submit' onClick={addTodo}>add</button>
                 </div>
             </div>
         </>
