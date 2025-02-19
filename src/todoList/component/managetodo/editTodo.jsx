@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TodoContext } from '../../todoList'
+import { TodoContext } from '../../component/context/provider'
 
 
 
@@ -7,14 +7,13 @@ import { TodoContext } from '../../todoList'
 
 export default function Edit({ todo }) {
 
-    const { todos, setTodos, setAddValue, setEditkey, setValue, setEditmode, editvalue, setEditValue, editkey } = useContext(TodoContext)
+    const { todos, setEditkey, setEditmode, setEditValue } = useContext(TodoContext)
 
     function editTodo(e) {
         setEditmode(true)
         const todoValue = todos.find((todo) => todo.key === e)
         setEditValue(todoValue.name)
         setEditkey(e)
-       
         console.log(todoValue.name)
     }
 

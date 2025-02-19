@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TodoContext } from '../../todoList'
+import { TodoContext } from '../../component/context/provider'
 
 export default function Checked({ todo }) {
 
@@ -8,7 +8,6 @@ export default function Checked({ todo }) {
     function checkedTodo(e) {
         const completedTodo = todos.find((todo) => todo.key === e);
         if (completedTodo) {
-            setDoneTodo((prev) => [...prev, completedTodo]);
             setTodos((prevTodos) =>
                 prevTodos.map((todo) =>
                     todo.key === e ? { ...todo, checked: true } : todo
@@ -19,6 +18,8 @@ export default function Checked({ todo }) {
                     todo.key === e ? { ...todo, checked: true } : todo
                 )
             );
+            setDoneTodo((prev) => [...prev, completedTodo]);
+
         }
     }
 

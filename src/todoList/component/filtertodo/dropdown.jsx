@@ -1,18 +1,24 @@
+import React, { useContext } from 'react'
+import { TodoContext } from '../../component/context/provider'
 
-function TodoFilter(props) {
+
+function TodoFilter() {
+
+    const { setTitleValue } = useContext(TodoContext)
 
     function listName(e) {
         let updatedStatus;
         if (e.target.value === 'all') {
             updatedStatus = '1'
+        
         } else if (e.target.value === 'done') {
             updatedStatus = '2'
+            
         } else if (e.target.value === 'undone') {
             updatedStatus = '3'
+        
         }
-
-        // setListStatus(updatedStatus)
-        props.parentCallback(updatedStatus)
+        setTitleValue(updatedStatus)
     }
 
     return (

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TodoContext } from '../../todoList'
+import { TodoContext } from '../../component/context/provider'
 
 
 
@@ -7,7 +7,7 @@ import { TodoContext } from '../../todoList'
 export default function AddTodo() {
 
 
-    const { value, setValue, setTodos, addValue, setAddValue, editkey, setDoneTodo , setEditmode } = useContext(TodoContext)
+    const { value, setValue, setTodos  } = useContext(TodoContext)
 
     const inputTextRef = React.createRef()
 
@@ -32,23 +32,7 @@ export default function AddTodo() {
         }
         inputTextRef.current.focus()
     }
-    function pasteEditTodo() {
-        if (editkey !== null) {
-            setTodos((todos) =>
-                todos.map((todo) =>
-                    todo.key === editkey ? { ...todo, name: value } : todo
-                )
-            );
-            setDoneTodo((todos) =>
-                todos.map((todo) =>
-                    todo.key === editkey ? { ...todo, name: value } : todo
-                ))
-            setValue('')
-            setAddValue(true)
-            setEditmode(false)
-        }
-    }
-  
+ 
 
     return (
         <>
