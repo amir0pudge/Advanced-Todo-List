@@ -14,7 +14,6 @@ export default function Edit({ todo }) {
         const todoValue = todos.find((todo) => todo.key === e)
         setEditValue(todoValue.name)
         setEditkey(e)
-        console.log(todoValue.name)
     }
 
 

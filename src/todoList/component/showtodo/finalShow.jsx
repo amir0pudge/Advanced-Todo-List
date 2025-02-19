@@ -10,10 +10,10 @@ import Unchecked from './uncheckedTodo'
 
 export default function ShowResult() {
 
-    const { todos, setTodos, titleValue, doneTodo, setDoneTodo, undoneTodo, Show, setShow, editmode, editvalue, setEditValue, editkey,check, setCheck } = useContext(TodoContext)
+    const { todos, setTodos, titleValue, doneTodo, setDoneTodo, undoneTodo, Show, setShow, editmode, setEditmode, editvalue, setEditValue, editkey, check, setCheck } = useContext(TodoContext)
 
     Unchecked()
-    
+
     function finalShow() {
         setCheck(true)
         if (titleValue === '1') {
@@ -27,20 +27,28 @@ export default function ShowResult() {
     }
 
     function pastedEdit() {
-        setTodos(todos.map(todo =>
-            todo.key === editkey ? { ...todo, name: editvalue } : todo
-        ));
-        doneTodo.map(task => (
-            task.key === editkey ? setDoneTodo(todos.map(todo =>
+        setTodos(prevTodos =>
+            prevTodos.map(todo =>
                 todo.key === editkey ? { ...todo, name: editvalue } : todo
-            )) : task
-        ))
+            )
+        );
+
+        setDoneTodo(prevDoneTodo =>
+            prevDoneTodo.map(task =>
+                task.key === editkey ? { ...task, name: editvalue } : task
+            )
+        );
+        setEditmode(false)
     }
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            
+            pastedEdit()
+          }
+      
+    };
 
     useEffect(() => {
         finalShow()
@@ -57,10 +65,10 @@ export default function ShowResult() {
                         {todo.key === editkey && editmode ?
                             (
                                 <>
-                                    <form className='w-100 h-100 flex xs:flex-wrap sm:flex-nowrap bg-whitesmoke justify-evenly items-center' onSubmit={handleSubmit}>
-                                        <input className='w-80 h-auto rounded-md border-gray-200 border-2 outline-none bg-white px-2  py-3' type="text" onChange={(e) => setEditValue(e.target.value)} value={editvalue} autoFocus />
-                                        <button className='xs:w-80 sm:w-10 xs:mt-2 sm:mt-0 h-auto rounded-md border-none outline-none bg-blue1 text-color flex-center font-bold uppercase text-2xl px-10 py-4 ml-1' type='submit' onClick={() => pastedEdit()}>edit</button>
-                                    </form>
+                                    <div className='w-100 h-100 flex xs:flex-wrap sm:flex-nowrap bg-whitesmoke justify-evenly items-center'>
+                                        <input className='w-80 h-auto rounded-md border-gray-200 border-2 outline-none bg-white px-2  py-3' type="text" onChange={(e) => setEditValue(e.target.value)} onKeyDown={handleKeyDown} value={editvalue} autoFocus />
+                                        <button className='xs:w-80 sm:w-10 xs:mt-2 sm:mt-0 h-auto rounded-md border-none outline-none bg-blue1 text-color flex-center font-bold uppercase text-2xl px-10 py-4 ml-1' type='submit'  onClick={() => pastedEdit()}>edit</button>
+                                    </div>
                                 </>
                             )
                             : (
